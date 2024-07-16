@@ -1,35 +1,16 @@
-# class Employee:
+# class SingletonClass:
 #
-#     annual_raise = 1.05
+#     def __new__(cls, *args, **kwargs):
+#         if not hasattr(cls, "instance"):
+#             cls.instance = super(SingletonClass, cls).__new__(cls)
+#         return cls.instance
 #
-#     def __init__(self, first_name, last_name, pay):
-#         self.first_name = first_name
-#         self.last_name = last_name
-#         self.pay = pay
-#         self.email = f"{first_name}.{last_name}@company.com"
+# singleton = SingletonClass()
+# new_singleton = SingletonClass()
 #
-#     def get_fullname(self):
-#         return f"{self.first_name} {self.last_name}"
-
-    # def apply_raise(self):
-    #     self.pay *= 1.05
-
-    # def apply_raise(self):
-    #     self.pay *= self.annual_raise
-
-    # def apply_raise(self):
-    #     self.pay *= Employee.annual_raise
-
-
-# employee1 = Employee(
-#     first_name="David",
-#     last_name="Smith",
-#     pay=10000
-# )
+# print(singleton is new_singleton)
+# print(singleton)
+# print(new_singleton)
 #
-# print(employee1.pay)
-# employee1.apply_raise()
-# print(employee1.pay)
-#
-# employee1.annual_raise = 1.06
-# Employee.annual_raise = 1.06
+# singleton.instance_variable = "Instance Variable"
+# print(new_singleton.instance_variable)
