@@ -28,33 +28,92 @@
 #     def is_workday(day):
 #         return False if day.weekday() in (5,6) else True
 #
-# employee1 = Employee(
-#     first_name="David",
-#     last_name="Smith",
-#     pay=10000
-# )
 #
-# print(employee1.pay)
-# employee1.apply_raise()
-# print(employee1.pay)
+# class Developer(Employee):
+#     pass
 #
-# employee1.set_annual_raise(value=1.06)
-# print(employee1.annual_raise)
-# Employee.set_annual_raise(value=1.07)
-# print(employee1.annual_raise)
+# developer = Developer(first_name="Jomari", last_name="Macaraig", pay=1000)
+# print(developer.email)
 #
-# employee2 = Employee(
-#     first_name="Test",
-#     last_name="User",
-#     pay=10000
-# )
+# print(help(developer))
 #
-# print(employee2.annual_raise)
+# print(developer.pay)
+# developer.apply_raise()
+# print(developer.pay)
 #
-# employee3_string = "Maria-Doe-2000"
-# employee3 = Employee.create_from_string(string=employee3_string)
-# print(employee3.email)
-# print(employee3.pay)
 #
-# print(Employee.is_workday(datetime.now()))
-# print(Employee.is_workday(date(2024, 7, 6)))
+# class Developer(Employee):
+#     annual_raise =  1.10
+#
+# developer = Developer(first_name="Jomari", last_name="Macaraig", pay=1000)
+#
+# print(developer.pay)
+# developer.apply_raise()
+# print(developer.pay)
+#
+#
+# class Developer(Employee):
+#
+#     def __init__(self, first_name, last_name, pay, programming_language):
+#         self.programming_language = programming_language
+#         super().__init__(first_name=first_name, last_name=last_name, pay=pay)
+#
+# developer1 = Developer(first_name="Jomari", last_name="Macaraig", pay=1000, programming_language="Python")
+# developer2 = Developer(first_name="John", last_name="Doe", pay=1000, programming_language="Java")
+#
+# print(developer1.email)
+# print(developer1.programming_language)
+#
+# print(developer2.email)
+# print(developer2.programming_language)
+#
+#
+# # Exercise
+# """
+#     Create a Manager class that subclass Employee class. A manager manage people or employees thus this class should
+#     accept an optional parameter called employees. If no employee passed, set it to an empty list
+# """
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+# class Manager(Employee):
+#
+#     def __init__(self, first_name, last_name, pay, employees=None):
+#         super().__init__(first_name=first_name, last_name=last_name, pay=pay)
+#         self.employees = employees or []
+#
+#     def add_employee(self, employee):
+#         if employee not in self.employees:
+#             self.employees.append(employee)
+#
+#     def remove_employee(self, employee):
+#         if employee in self.employees:
+#             self.employees.remove(employee)
+#
+#     def print_employees(self):
+#         for employee in self.employees:
+#             print(f"---> {employee.get_fullname()}")
+#
+# manager = Manager(first_name="Dennis", last_name="Guzman", pay=1001, employees=[developer1])
+# print(manager.email)
+# print(manager.print_employees())
+# manager.add_employee(developer2)
+# print(manager.print_employees())
+# manager.add_employee(developer1)
+# print(manager.print_employees())
+#
+#
+# print(isinstance(manager, Employee))
+# print(isinstance(manager, Developer))
+#
+# print(issubclass(manager, Employee))
+# print(issubclass(manager, Developer))
